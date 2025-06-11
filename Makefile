@@ -14,6 +14,9 @@ $(NAME): $(OBJ)
 %.o: %.s
 	$(COMP) -o $@ $<
 
+main:
+	cc -Wall -Wextra -Werror -o  main main.c -L. -lasm
+
 clean:
 	rm -f $(OBJ)
 
