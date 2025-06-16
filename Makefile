@@ -2,7 +2,7 @@ NAME    = libasm.a
 ARCH    = ar rc
 COMP    = nasm -f elf64
 
-SRC     = ft_strlen.s
+SRC     = ft_strlen.s ft_strcpy.s
 OBJ     = $(SRC:.s=.o)
 
 all: $(NAME)
@@ -22,5 +22,6 @@ clean:
 
 fclean: clean
 	rm -f $(NAME)
+	rm -f main
 
-re: fclean all
+re: fclean all main

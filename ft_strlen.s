@@ -11,3 +11,4 @@ ft_strlen:
   jmp .loop
   .fin:
   ret
+
