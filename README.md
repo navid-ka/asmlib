@@ -46,3 +46,5 @@ https://web.stanford.edu/class/cs107/resources/x86-64-reference.pdf
 | `R8`     | arg5              |
 | `R9`     | arg6              |
 | `RAX`    | Valor de retorno  |
+
+mov rax, 1      ; Linux syscall number for write 

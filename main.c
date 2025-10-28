@@ -1,12 +1,17 @@
+#include <unistd.h>
 #include <stdio.h>
 #include <string.h>
+#include <errno.h>
+#include <stdlib.h>
 
-size_t  ft_strlen(char *str);
+size_t  ft_strlen(const char *str);
 char    *ft_strcpy(char *dest, const char *src);
 int     ft_strcmp(const char *s1, const char *s2);
+ssize_t ft_write(int fd, const void *buf, size_t count);
+char    *ft_strdup(const char *s);
 
 int main() {
-  char *str = "Totototototo";
+ char *str = "Totototototo";
   int x = ft_strlen(str);
   int y = strlen(str);
 
@@ -25,5 +30,18 @@ int main() {
   printf("strcmp test == %d\n", strcmp(s1a, s2a));
   printf("strcmp test libasm == %d\n", ft_strcmp(s1a, s2a));
 
-  return 0;
+  const char *msg6 = "Hello from ft_write()\n";
+  size_t len = strlen(msg6);
+
+  printf("strlen(msg2) = %zu\n", len);
+
+  ssize_t r = ft_write(1, msg6, len);
+  printf("ft_write sees count = %zd\n", r);
+
+  char *strdupped = ft_strdup(msg6);
+  printf("Dupped %s", strdupped);
+  free(strdupped);
+
+
+    return 0;
 }
