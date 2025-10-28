@@ -47,4 +47,11 @@ https://web.stanford.edu/class/cs107/resources/x86-64-reference.pdf
 | `R9`     | arg6              |
 | `RAX`    | Valor de retorno  |
 
-mov rax, 1      ; Linux syscall number for write 
+https://lwn.net/Articles/604287/
+
+asmlinkage const sys_call_ptr_t sys_call_table[__NR_syscall_max+1] = {
+    	[0 ... __NR_syscall_max] = &sys_ni_syscall,
+    	[0] = sys_read,
+    	[1] = sys_write,
+    	/*... */
+    };
